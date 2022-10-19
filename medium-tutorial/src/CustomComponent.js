@@ -1,5 +1,8 @@
+import EventHandler from './EventHandler'
+
 export class CustomComponent extends HTMLElement {
     #mainComp
+    #style
     static ID = 0
 
     constructor() {
@@ -11,10 +14,10 @@ export class CustomComponent extends HTMLElement {
 
 
         this.customStyle = ''
-        this.__style = document.createElement('style')
-        this.__style.textContent = ''
+        this.#style = document.createElement('style')
+        this.#style.textContent = ''
 
-        this.shadowRoot.appendChild(this.__style)
+        this.shadowRoot.appendChild(this.#style)
         this.shadowRoot.appendChild(this.#mainComp)
 
         this.compName = ''
@@ -71,6 +74,10 @@ export class CustomComponent extends HTMLElement {
         return [parts.shift(), ...parts.map(n => n[0].toUpperCase() + n.slice(1))].join('')
     }
 
+    /**
+     *
+     * @param force
+     */
     #display(force = false) {
         if (force) {
             [...this.#mainComp.children].forEach(this.#mainComp.removeChild.bind(this.#mainComp))
@@ -80,19 +87,17 @@ export class CustomComponent extends HTMLElement {
             console.log(`already rendered ${this.compName}`)
         }
         console.log(`displaying ${this.compName}`)
-        this.__style.textContent = this.customStyle
+        this.#style.textContent = this.customStyle
 
-        const rendered = this.#render()
+        const rendered = this.render()
         this.isAttached = true
         this.#mainComp.append(rendered)
     }
 
     /**
      * to be implemented by the child class
-     *
-     * @returns {null}
      */
-    #render() {
+    render() {
         return null
     }
 }
