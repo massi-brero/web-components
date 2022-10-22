@@ -1,4 +1,4 @@
-import EventHandler from './EventHandler'
+import EventHandler from './EventHandler.js'
 
 export class CustomComponent extends HTMLElement {
     #mainComp
@@ -10,7 +10,7 @@ export class CustomComponent extends HTMLElement {
 
         this.attachShadow({mode: 'open'})
         this.#mainComp = document.createElement('span')
-        this.#mainComp.setAttribute('class', 'custom-camp')
+        this.#mainComp.setAttribute('class', 'custom-comp')
 
 
         this.customStyle = ''
@@ -85,13 +85,14 @@ export class CustomComponent extends HTMLElement {
 
         if (this.isAttached) {
             console.log(`already rendered ${this.compName}`)
+            return
         }
         console.log(`displaying ${this.compName}`)
         this.#style.textContent = this.customStyle
 
-        const rendered = this.render()
+        const renderedElem = this.render()
         this.isAttached = true
-        this.#mainComp.append(rendered)
+        this.#mainComp.append(renderedElem)
     }
 
     /**

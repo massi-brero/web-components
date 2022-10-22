@@ -1,4 +1,4 @@
-import { CustomComponent } from '../CustomComponent'
+import { CustomComponent } from '../CustomComponent.js'
 
 export default class MBButton extends CustomComponent {
     static observedAttributes = []
@@ -6,17 +6,18 @@ export default class MBButton extends CustomComponent {
     constructor() {
         super()
         this.compName = 'Button'
-        this.compStyle = `
+        this.customStyle = `
             .custom-comp {
                 padding: 10px;
                 display: block;
-                color: red;
             }
             .legend {
                 display: block;
             }
             button {
                 margin: 5px;
+                border: lightgrey 1px solid;
+                padding: 4px;
             }
         `
     }
@@ -38,7 +39,6 @@ export default class MBButton extends CustomComponent {
         wrapper.appendChild(buttonElem)
 
         return wrapper
-
     }
 }
 
