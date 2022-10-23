@@ -1,4 +1,4 @@
-import { CustomComponent } from './CustomComponent'
+import { CustomComponent } from '../CustomComponent.js'
 
 export default class MBCard extends CustomComponent {
     static observedAttributes = []
@@ -53,13 +53,12 @@ export default class MBCard extends CustomComponent {
 
         wrapper.innerHTML = `
           <div class="${elemClass.join(" ")}">
-                <slot ></slot>
+                <slot       ></slot>
           </div>  
         `
-
-        console.log(`returning from rendering ${this.compName}`)
-        console.log(wrapper)
-
+        this.logSuccess()
         return wrapper
     }
 }
+
+customElements.define('mb-card', MBCard)

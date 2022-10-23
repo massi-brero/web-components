@@ -17,7 +17,9 @@ export default class MBButton extends CustomComponent {
             button {
                 margin: 5px;
                 border: lightgrey 1px solid;
-                padding: 4px;
+                padding: 8px;
+                background-color: lightblue;
+                border-radius: 4px;
             }
         `
     }

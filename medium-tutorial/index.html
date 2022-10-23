@@ -2,10 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/styles.css">
     <script src="src/index.js" type="module"></script>
-    <title>Title</title>
+    <title>Web Components</title>
 </head>
-<body>
-    <mb-button data-text="Massis Button" onClick="() => alert('Servus nochad')"></mb-button>
-</body>
+    <body>
+        <h1>Massi's Web Components</h1>
+
+        <mb-card>
+            <h2>Default (vertical)</h2>
+            <mb-stack>
+                <mb-button data-text="This is a button v1" onClick="() => alert('ola!')"></mb-button>
+                <mb-button data-text="This is a button v2" onClick="() => alert('ola!')"></mb-button>
+                <mb-button data-text="This is a button v3" onClick="() => alert('ola!')"></mb-button>
+                <mb-button data-text="This is a button v4" onClick="() => alert('ola!')"></mb-button>
+            </mb-stack>
+        </mb-card>
+        <mb-card>
+            <h2>Horizontal</h2>
+            <mb-stack dir="horizontal">
+                <mb-button data-text="This is a button v1" onClick="() => alert('ola!')"></mb-button>
+                <mb-button data-text="This is a button v2" onClick="() => alert('ola!')"></mb-button>
+                <mb-button data-text="This is a button v3" onClick="() => alert('ola!')"></mb-button>
+                <mb-button data-text="This is a button v4" onClick="() => alert('ola!')"></mb-button>
+            </mb-stack>
+        </mb-card>
+        <mb-card>
+            <h2>Form inputs</h2>
+            <mb-text-input placeholder="Enter your email." label="Login"></mb-text-input>
+            <mb-text-input is-password="true" label="Password"></mb-text-input>
+        </mb-card>
+    </body>
 </html>

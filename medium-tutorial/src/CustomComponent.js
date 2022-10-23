@@ -101,5 +101,9 @@ export class CustomComponent extends HTMLElement {
     render() {
         return null
     }
+
+    logSuccess() {
+        console.log(`returning from rendering ${this.compName}`)
+    }
 }
 
